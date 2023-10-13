@@ -32,6 +32,8 @@ if (isset($_GET['pizzaId'])) {
     <?php else : ?>
         <h3>Can't get this pizza</h3>
     <?php endif ?>
+
+    <button>Delete</button>
 </div>
 
 <?php include './extend/footer.php' ?>
