@@ -32,8 +32,8 @@ if (isset($_GET['pizzaId'])) {
     <?php else : ?>
         <h3>Can't get this pizza</h3>
     <?php endif ?>
+    <a href="./deleteProduct.php?deleteId=<?php echo htmlspecialchars( $pizza['id']) ?>"><button>Delete</button></a>
 
-    <button>Delete</button>
 </div>
 
 <?php include './extend/footer.php' ?>
