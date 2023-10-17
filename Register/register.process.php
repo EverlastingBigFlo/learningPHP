@@ -2,21 +2,30 @@
 
 // echo 'hello';
 // print_r ($_POST);
+// $errors = ['email' => '', 'password' => ''];
 
+if (isset($_POST['submit'])) {
 
 if (empty($_POST['email'])) {
-    die('email is requiired');
+//  $errors['email'] =  die('email is requiired');
+//$errors['email'] = 'email is required';'
+die('emil is required');
 };
 
 if (empty($_POST['password'])) {
-    die('password is required');
-}
+//  $errors ['password'] =  'password is required';
+die('passwod is require');
+};
 if (strlen($_POST['password']) < 6) {
-   die('password is less than 6 word');
+//   $errors ['password'] = 
+die('password is less than 6 word');
 }
 if (!preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $_POST['email'])) {
-    echo "In Valid email address.";
+//   $errors ['email'] = 
+ die( "In Valid email address.");
 };
+};
+
 
 require __DIR__ . '/connectDB.php';
 
@@ -28,9 +37,10 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO `user` (`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
 
+
+
 if (mysqli_query($conn, $sql)) {
-    header('Location: index.php');
-  }
-
-
-
+    header('Location: RegisterSuccess.php');
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
